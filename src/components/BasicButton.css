@@ -1,0 +1,81 @@
+/* DEFINE BUTTON STYLE*/
+/* overall button style */
+.generic-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #5E0076;
+  margin: 1% 6%;
+  border: none;
+  border-radius: 18px;
+  cursor: pointer;
+
+  flex-grow: 1;
+  color: white;
+  text-decoration: none;
+  font-size: 2.0rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.generic-button:hover {
+  background-color: #540069;
+}
+
+.complete.clicked {
+  background-color: #15FF10;
+}
+
+.button-text {
+  flex-grow: 1;
+  color: #fff;
+  text-decoration: none;
+  font-size: 2.0rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* arrow in button */
+.arrow {
+  margin-left: 40%;
+  font-size: 10.0rem;
+}
+
+/* define the style for the completion circles */
+.circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #37104E;
+  border-style: solid;
+  border-width: 7px;
+  border-color: #15FF10;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5%;
+}
+
+#check {
+  display: none;
+  /* Position the icon relative to the circle */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* Center the icon */
+  transform: translate(-50%, -50%);
+  color: #37104E;
+  font-size: 5.0rem;
+}
+
+/* define style for when circle is clicked*/
+.circle.clicked {
+  background-color: #15FF10;
+  /* Change the background color when clicked */
+}
+
+/* toggle check mark */
+#check.show {
+  display: block;
+}

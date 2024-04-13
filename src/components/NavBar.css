@@ -1,0 +1,36 @@
+/* NAVIGATION BAR */
+/* navigation list style */
+
+/* navigation style */
+.navBar {
+  overflow: hidden;
+  background-color: #37104E;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+  margin: 0;
+  margin-top: 30px;
+  padding: 0;
+  z-index: 999;
+}
+
+/* navigation text */
+.nav-link {
+  float: left;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px;
+  font-size: 2.0rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* active background for navigation */
+.nav-link.active {
+  padding: 10px;
+  background-color: #190723;
+}
