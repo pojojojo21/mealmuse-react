@@ -12,6 +12,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 
 function App() {
+
+  // const location = useLocation();
   const [activeLink, setActiveLink] = useState('/');
   const [isHome, setIsHome] = useState('/');
 

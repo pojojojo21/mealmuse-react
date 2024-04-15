@@ -16,7 +16,7 @@ function Home({ setIsHome }) {
   }, [setIsHome]);
 
   return (
-    <div className="main">
+    <div>
       <Routes>
         <Route path="/weekly-dish" element={<WeeklyDishPage />} />
         <Route path="/weekly-cuisine" element={<WeeklyCuisinePage />} />

@@ -1,9 +1,14 @@
 import React from 'react';
-// import { toggleCircle } from './index'; // Import toggleCircle function from index.js
+import ProfileCard from './ProfileCard';
+import GenericButton from '../../components/GenericButton';
 
 function Profile() {
   return (
     <div>
+      <ProfileCard user="User" />
+      <GenericButton to={'completedDishes'}>
+        Completed Dishes
+      </GenericButton>
     </div>
   );
 }
