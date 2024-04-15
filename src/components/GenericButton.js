@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import "./GenericButton.css"
 
 function GenericButton({ to, children }) {
   return (

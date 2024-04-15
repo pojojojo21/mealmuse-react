@@ -5,12 +5,15 @@
   justify-content: space-around;
   background-color: #5E0076;
   margin: 1% 6%;
+  padding-right: 1%;
+  padding-left: 1%;
   border: none;
   border-radius: 18px;
   cursor: pointer;
   flex-grow: 1;
   color: white;
   text-decoration: none;
+  font-size: 1.5rem;
 }
 
 .generic-button:hover {

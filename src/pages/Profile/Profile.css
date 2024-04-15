@@ -1,10 +1,14 @@
+.profile-container {
+  margin-top: -5%;
+}
+
 .button-not-clickable {
   display: inline-flex;
   align-items: center;
   color: white;
   background-color: #5E0076;
   padding: 20px 50px;
-  margin: 30 100px;
+  margin: 1% 100px;
   border: none;
   border-radius: 18px;
   font-size: 1.5rem;

@@ -1,5 +1,8 @@
 # Getting Started
 
+First naviagtive to this website https://nodejs.org/en/download/
+and install node.js.
+
 cd into project directory
 run `npm install`
 

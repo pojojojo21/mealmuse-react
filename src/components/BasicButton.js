@@ -10,7 +10,7 @@ function BasicButton({ buttonText, pageLink }) {
     <div className="button-div main">
       <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
         <CircleButton task={task} />
-        <Link to={pageLink} className="generic-button">
+        <Link to={pageLink} className="basic-button">
           <span>
             {buttonText}:<br /><br />
             <span style={{ display: 'flex', alignItems: 'center' }}>
