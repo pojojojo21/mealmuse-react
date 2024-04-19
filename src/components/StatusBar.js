@@ -1,6 +1,8 @@
 import React from 'react';
 
-function StatusBar({ isHomePage }) {
+function StatusBar() {
+
+  const isHomePage = localStorage.getItem('isHomePage') === 'true';
 
   if (!isHomePage) {
     // If not on the home page, return null to render nothing

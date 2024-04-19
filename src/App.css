@@ -14,3 +14,8 @@ body {
   margin-top: 15%;
   margin-bottom: 8%;
 }
+
+.button-div {
+  display: flex;
+  flex-direction: column;
+}

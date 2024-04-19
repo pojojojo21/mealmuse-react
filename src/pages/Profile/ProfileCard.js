@@ -8,7 +8,7 @@ function ProfileCard({ user }) {
     <div className="profile-card">
       <div className="icon-container">
         <div className="icon-circle">
-          <FontAwesomeIcon icon={faUserCircle} />
+          <FontAwesomeIcon icon={faUserCircle} size="10x" />
         </div>
       </div>
       <div className="profile-text">

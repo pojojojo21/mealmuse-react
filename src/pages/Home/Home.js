@@ -8,12 +8,14 @@ import "./Home.css"
 
 // import { toggleCircle } from './index'; // Import toggleCircle function from index.js
 
-function Home({ setIsHome }) {
+function Home() {
   useEffect(() => {
-    setIsHome(true);
+    localStorage.setItem('isHomePage', 'true');
     // Clean up function to set isHome to false when component is unmounted
-    return () => setIsHome(false);
-  }, [setIsHome]);
+    return () => {
+      localStorage.removeItem('isHomePage');
+    };
+  }, []);
 
   return (
     <div>

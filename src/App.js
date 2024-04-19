@@ -8,25 +8,26 @@ import Leaderboard from './pages/Leaderboard/Leaderboard'
 import Profile from './pages/Profile/Profile'
 import Search from './pages/Search/Search'
 
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 
 
 function App() {
 
   // const location = useLocation();
   const [activeLink, setActiveLink] = useState('/');
-  const [isHome, setIsHome] = useState('/');
+  // const [isHome, setIsHome] = useState('/');
+  // const location = useLocation();
 
   return (
     <div className="App">
-      <Header isHome={isHome} ></Header>
+      <Header />
 
       <Router>
         <div>
           <NavBar activeLink={activeLink} setActiveLink={setActiveLink} />
           <div className='main'>
-            <Routes>
-              <Route exact path="/" element={<Home setIsHome={setIsHome} />} />
+            <Routes >
+              <Route path="/" element={<Home />} />
               <Route path="/leaderboard" element={<Leaderboard />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/search" element={<Search />} />
