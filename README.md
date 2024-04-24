@@ -3,17 +3,35 @@
 First naviagtive to this website https://nodejs.org/en/download/
 and install node.js.
 
-cd into project directory
+# Frontend setup
+cd into project directory and frontend
 run `npm install`
 
-# Start running porject `npm start`
+# Backend setup
+cd into project directory and backend
+run `pip install fastapi uvicorn pydantic pymongo`
 
-Run app in dev mode
+Create environment variable for mongodb
+`export MONGODB_URL="mongodb+srv://<username>:<password>@<url>/<db>?retryWrites=true&w=majority"`
+
+# Start running backend for project
+cd into project directory and backend
+run `uvicorn main:app --reload`
+
+
+If you find yourself running into SSL server error run this command in your terminal with your computer's python verison
+
+`open "/Applications/Python <YOUR PYTHON VERSION>/Install Certificates.command"`
+
+
+# Start running frontend for project
+In a separate terminal, cd into project directory and frontend
+run `npm start`
 Open [http://localhost:3000]
 
 
-
-
+# Use this website to remove the white background from icons
+3. https://www.remove.bg/upload
 
 # Run tests on app `npm test`
 

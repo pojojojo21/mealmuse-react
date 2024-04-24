@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
-
+// import "../../../../backend/crud"
 import GenericButton from '../../components/GenericButton';
-import "./Search.css"
+import { searchTasks } from "./Search.css"
 
 function Search() {
   const handleSearch = (event) => {
     const searchQuery = event.target.value;
     console.log(searchQuery);
+    // searchTasks(searchQuery);
+
     // Call your search function here with the current value in the input
     // For example:
     // searchFunction(searchQuery);
