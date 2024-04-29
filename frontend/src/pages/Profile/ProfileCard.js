@@ -16,7 +16,9 @@ function ProfileCard({ user }) {
         <span className="userPoints">120</span> pts
       </div>
       <div className="button-not-clickable">
-        Favorite Dish: Sushi <br /> <br />
+        Favorite Dish: Sushi
+      </div>
+      <div className="button-not-clickable">
         Favorite Cuisine: Mexican
       </div>
     </div>

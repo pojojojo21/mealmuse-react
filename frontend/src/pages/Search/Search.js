@@ -4,12 +4,15 @@ import GenericButton from '../../components/GenericButton';
 import "./Search.css"
 
 function Search() {
+  const [searchResults, setSearchResults] = useState([]);
+
   const handleSearch = async (event) => { // Add async keyword here
     const searchQuery = event.target.value;
     // console.log(searchQuery);
     try {
       const response = await getDishes(searchQuery);
       const dishes = response.dishes
+      setSearchResults(dishes)
       dishes.forEach(dish => { // Remove ".array" here
         console.log(dish.name)
       });
@@ -20,35 +23,24 @@ function Search() {
   };
 
   return (
-    <div className="button-div">
+    <div className="search-container button-div">
       <div className="button-not-clickable">
-        Search
         <div>
           <input
             type="text"
             id="textInput"
             className="search-input"
-            placeholder='Search for dishes, cuisines, and ingredients'
+            placeholder="Search..."
             onChange={handleSearch}
           />
         </div>
       </div>
 
-      <GenericButton to={'tacos'}>
-        Tacos
-      </GenericButton>
-
-      <GenericButton to={'sushi'}>
-        Sushi
-      </GenericButton>
-
-      <GenericButton to={'soup'}>
-        Soup
-      </GenericButton>
-
-      <GenericButton to={'iceCream'}>
-        Ice Cream
-      </GenericButton>
+      {searchResults.map((dish, index) => (
+        <GenericButton key={index} to={dish.name.toLowerCase()}> {/* Use dish name as button link */}
+          {dish.name} {/* Display dish name as button text */}
+        </GenericButton>
+      ))}
 
     </div>
   );

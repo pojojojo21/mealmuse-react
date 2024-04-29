@@ -3,7 +3,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: space-around;
-  background-color: #5E0076;
+  background-color: #00BFA5;
   margin: 1% 6%;
   padding-right: 1%;
   padding-left: 1%;
@@ -17,7 +17,7 @@
 }
 
 .generic-button:hover {
-  background-color: #540069;
+  background-color: #029985;
 }
 
 .button-text {

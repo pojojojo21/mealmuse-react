@@ -11,7 +11,7 @@
 .icon-circle {
   width: 200px;
   height: 200px;
-  background-color: #5E0076;
+  background-color: #00BFA5;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -20,7 +20,7 @@
 }
 
 .profile-text {
-  color: #37104E;
+  color: #00BFA5;
   text-align: center;
   font-size: 24px;
 }

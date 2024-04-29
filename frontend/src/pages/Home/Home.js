@@ -4,18 +4,10 @@ import BasicButton from '../../components/BasicButton';
 import WeeklyDishPage from './WeeklyDishPage'; // Create WeeklyDishPage component
 import WeeklyCuisinePage from './WeeklyCuisinePage'; // Create WeeklyCuisinePage component
 import WeeklyIngredientPage from './WeeklyIngredientPage'; // Create WeeklyIngredientPage component
+import StatusBar from '../../components/StatusBar';
 import "./Home.css"
 
-// import { toggleCircle } from './index'; // Import toggleCircle function from index.js
-
 function Home() {
-  useEffect(() => {
-    localStorage.setItem('isHomePage', 'true');
-    // Clean up function to set isHome to false when component is unmounted
-    return () => {
-      localStorage.removeItem('isHomePage');
-    };
-  }, []);
 
   return (
     <div>
@@ -25,6 +17,7 @@ function Home() {
         <Route path="/weekly-ingredient" element={<WeeklyIngredientPage />} />
       </Routes>
       <div>
+        <StatusBar />
         <BasicButton buttonText="Weekly Dish" pageLink="/weekly-dish" />
         <BasicButton buttonText="Weekly Cuisine" pageLink="/weekly-cuisine" />
         <BasicButton buttonText="Weekly Ingredient" pageLink="/weekly-ingredient" />

@@ -14,10 +14,10 @@ function BasicButton({ buttonText, pageLink }) {
           <span>
             {buttonText}:<br /><br />
             <span style={{ display: 'flex', alignItems: 'center' }}>
-              {buttonText} [+5] <img src={getImageSrc(buttonText)} alt={buttonText} width="100" height="100" />
+              {buttonText} [+5] <img src={getImageSrc(buttonText)} alt={buttonText} width="70" height="70" />
             </span>
           </span>
-          <span className="arrow" style={{ marginLeft: '20%' }}>&#8250;</span>
+          <span className="arrow" style={{ marginLeft: '2%' }}>&#8250;</span>
         </Link>
       </div>
     </div>

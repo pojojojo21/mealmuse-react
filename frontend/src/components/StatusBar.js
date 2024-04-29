@@ -2,13 +2,6 @@ import React from 'react';
 
 function StatusBar() {
 
-  const isHomePage = localStorage.getItem('isHomePage') === 'true';
-
-  if (!isHomePage) {
-    // If not on the home page, return null to render nothing
-    return null;
-  }
-
   return (
     <div className="statusBar">
       <span>

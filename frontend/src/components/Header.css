@@ -11,24 +11,6 @@ header {
   z-index: 999;
 }
 
-/* user status bar */
-.statusBar {
-  background-color: #FF6F61;
-  margin-top: 1px;
-  border-top-width: 1px;
-  border-bottom-width: 1px;
-  border-right-width: 0px;
-  border-left-width: 0px;
-  border-style: solid;
-  border-color: #fff;
-  padding: 1%;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 2.0rem;
-}
-
 /* top bar text */
 #logo {
   margin-top: 2%;
