@@ -5,7 +5,7 @@
 // Calling fetchClient.POST()
 // const authToken = await getAuthToken();
 
-async function addDish() {
+export async function addDish() {
   var url = 'http://localhost:8000';
 
   const requestBody = {
@@ -42,7 +42,7 @@ async function addDish() {
   }
 }
 
-async function getDishes(search = null, type = null) {
+export async function getDishes(search = null, type = null) {
   var url = 'http://localhost:8000/dishes/';
 
   // Construct query parameters
@@ -72,4 +72,4 @@ async function getDishes(search = null, type = null) {
 }
 
 // addDish();
-getDishes('Itali');
+// getDishes('Itali');

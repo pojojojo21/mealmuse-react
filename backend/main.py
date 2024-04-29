@@ -1,6 +1,7 @@
 from typing import List, Literal
 from fastapi import FastAPI, Body, HTTPException, status
 from fastapi.responses import Response
+from fastapi.middleware.cors import CORSMiddleware
 # from motor.motor_asyncio import AsyncIOMotorClient
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
@@ -10,6 +11,14 @@ from bson import ObjectId
 
 app = FastAPI(
    title="MealMuse Backend API"
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"],  # Update this with your frontend URL
+    allow_credentials=True,
+    allow_methods=["GET", "POST", "PUT", "DELETE"],
+    allow_headers=["*"],
 )
 
 # Connect to MongoDB 

@@ -1,17 +1,22 @@
 import React, { useState } from 'react';
-// import "../../../../backend/crud"
+import { getDishes } from "../../crud"
 import GenericButton from '../../components/GenericButton';
-import { searchTasks } from "./Search.css"
+import "./Search.css"
 
 function Search() {
-  const handleSearch = (event) => {
+  const handleSearch = async (event) => { // Add async keyword here
     const searchQuery = event.target.value;
-    console.log(searchQuery);
-    // searchTasks(searchQuery);
+    // console.log(searchQuery);
+    try {
+      const response = await getDishes(searchQuery);
+      const dishes = response.dishes
+      dishes.forEach(dish => { // Remove ".array" here
+        console.log(dish.name)
+      });
+    } catch (error) {
+      console.error('Error:', error);
+    }
 
-    // Call your search function here with the current value in the input
-    // For example:
-    // searchFunction(searchQuery);
   };
 
   return (

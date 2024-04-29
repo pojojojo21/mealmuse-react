@@ -39,6 +39,9 @@ Open [http://localhost:3000]
 
 
 ## Learn More
+http://localhost:8000/admin/asset/list
+http://localhost:8000/docs#/
+
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 

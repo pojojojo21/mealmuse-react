@@ -1,7 +1,7 @@
 /* TOP BAR */
 /* top back style */
 header {
-  background-color: #37104E;
+  background-color: #E83958;
   color: #fff;
   text-align: center;
   position: fixed;
@@ -13,7 +13,7 @@ header {
 
 /* user status bar */
 .statusBar {
-  background-color: #5E0076;
+  background-color: #FF6F61;
   margin-top: 1px;
   border-top-width: 1px;
   border-bottom-width: 1px;
@@ -30,10 +30,9 @@ header {
 }
 
 /* top bar text */
-h1 {
+#logo {
   margin-top: 2%;
   margin-bottom: 2%;
-  font-size: 2.0rem;
 }
 
 /* top bar style for back arrow combination */
