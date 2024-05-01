@@ -11,7 +11,7 @@ function CircleButton({ task }) {
 
   return (
     <div className={isClicked ? 'circle clicked' : 'circle'} onClick={handleClick}>
-      {isClicked && <span className={showCheck ? 'show' : ''} id="check"><img src='Images/Check.png' alt='arrow' width="20" /></span>}
+      {isClicked && <span className={showCheck ? 'show' : ''} id="check"><img src='Images/Check.png' alt='arrow' width="35" /></span>}
     </div>
   );
 }

@@ -4,14 +4,14 @@ function StatusBar() {
 
   return (
     <div className="statusBar">
-      <span>
-        Hello, <span className="userText">User</span>!
+      <span style={{}}>
+        Hello, <span className="userText">Joanna</span>!
       </span>
-      <span style={{ display: 'flex', alignItems: 'center' }}>
-        <span className="userPoints size">120</span>
-        <img src="Images/coin.png" alt="" width="20px" height="20%" />
+      <span style={{ display: 'flex', alignItems: 'center', flexDirection: 'row-reverse' }}>
+        <img src="Images/Fork.png" alt="" width="30" />
+        <span className="userPoints size">125</span>
       </span>
-    </div>
+    </div >
   );
 }
 

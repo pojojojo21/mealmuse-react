@@ -9,7 +9,7 @@ function GenericButton({ to, children }) {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-      <div className="circle-general"><span id='dishPic'><img src={imageText} alt='dish' width="20" /></span></div>
+      <div className="circle-general"><span id='dishPic'><img src={imageText} alt='dish' width="150%" /></span></div>
       <Link to={to} className="generic-button">
         <span>{children}</span>
         <span className="arrow-general"><img src='Images/Arrow.png' alt='arrow' width="15" height="20" /></span>

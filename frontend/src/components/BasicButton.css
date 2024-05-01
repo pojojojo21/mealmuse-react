@@ -4,13 +4,13 @@
   background-color: #00BFA5;
   border: none;
   color: white;
-  padding-left: 1.8rem;
-  padding-top: 5%;
-  padding-bottom: 5%;
+  padding-left: 12%;
+  padding-top: 10%;
+  padding-bottom: 10%;
   text-align: center;
   text-decoration: none;
-  font-size: 0.9rem;
-  margin: 0.25rem 0.125rem;
+  font-size: 150%;
+  margin: 5% 2%;
   cursor: pointer;
   border-radius: 1.0rem;
   margin-left: 10%;
@@ -37,8 +37,8 @@
 /* define the style for the completion circles */
 .circle {
   position: absolute;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 14%;
+  height: 7%;
   border-radius: 50%;
   background-color: #ffffff;
   border-style: solid;
@@ -53,7 +53,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -45%);
   color: #ffffff;
   font-size: 1.5rem;
 
@@ -71,6 +71,6 @@
 }
 
 #bonus {
-  padding: 0.2rem;
-  font-size: 0.8rem;
+  padding: 2%;
+  font-size: 90%;
 }
