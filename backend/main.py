@@ -1,11 +1,12 @@
 from typing import List, Literal
 from fastapi import FastAPI, Body, HTTPException, status
-from fastapi.responses import Response
+from fastapi.responses import Response, JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi import status
 # from motor.motor_asyncio import AsyncIOMotorClient
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
-from models import Dish, DishesCollection, UpdateDish, Search
+from models import Dish, DishesCollection, UpdateDish, Search, User
 import certifi
 from bson import ObjectId
 
@@ -30,6 +31,7 @@ client = MongoClient(uri, tlsCAFile=certifi.where())
 # client = AsyncIOMotorClient('mongodb+srv://jofisch:RuB95D4yRnQ6puM6@cluster0.iuy0qon.mongodb.net/')
 db = client["Backend"]
 collection = db["Tasks"]
+collectionUsers = db["Users"]
 
 @app.post(
     "/dishes/",
@@ -39,8 +41,6 @@ collection = db["Tasks"]
     response_model_by_alias=False,
 )
 async def create_dish(dish: Dish):
-  # await collection.insert_one(dish.dict())
-  # return {"message": "Dish added successfully"}
   new_dish = collection.insert_one(
         dish.model_dump(by_alias=True, exclude=["id"])
     )
@@ -80,12 +80,12 @@ def get_assets(
     query = {}
     if search:
       query = {
-          "$or": [
-              {"name": {"$regex": "^" + search, "$options": "i"}},
-              {"cuisine": {"$regex": "^" + search, "$options": "i"}},
-              {"ingredient": {"$regex": "^" + search, "$options": "i"}}
-          ]
-      }
+        "$or": [
+            {"name": {"$regex": "^" + search, "$options": "i"}},
+            {"cuisine": {"$regex": "^" + search, "$options": "i"}},
+            {"ingredients": {"$elemMatch": {"$regex": "^" + search, "$options": "i"}}}
+    ]
+  };
 
     dishes = []
     cursor = collection.find(query)
@@ -93,17 +93,50 @@ def get_assets(
       dishes.append(dish)
     return DishesCollection(dishes=dishes)
 
-# @app.put(
-#       "/dishes/{dish_id}",
-#       response_description="Update a single dish by id",
-#       response_model=Dish,
-#       response_model_by_alias=False,
-# )
-# async def update_item(dish_id: str, dish: UpdateDish):
-#     collection.replace_one({"_id": dish_id}, dish.dict())
-#     return {"message": "Dish updated successfully"}
+@app.put(
+      "/dishes/{dish_id}",
+      response_description="Update a single dish by id",
+      response_model=Dish,
+      response_model_by_alias=False,
+)
+async def update_item(dish_id: str, dish: Dish):
+    result = collection.replace_one({"id": dish_id}, dish.model_dump(by_alias=True, exclude=["id"]))
+    if result.modified_count == 0:
+        raise HTTPException(status_code=404, detail="Dish not found")
+    return dish
 
 @app.delete("/dishes/{dish_id}")
 def delete_item(dish_id: str):
     collection.delete_one({"_id": ObjectId(dish_id)})
     return {"message": "Dish deleted successfully"}
+
+
+@app.post(
+    "/users/",
+    response_description="Add new user",
+    response_model=User,
+    status_code=status.HTTP_201_CREATED,
+    response_model_by_alias=False,
+)
+async def create_user(user: User):
+  new_user = collectionUsers.insert_one(
+        user.model_dump(by_alias=True, exclude=["id"])
+    )
+  created_user = collectionUsers.find_one(
+      {"_id": new_user.inserted_id}
+  )
+  return created_user
+
+@app.get(
+      "/users/{id}",
+      response_description="Get a single user by id",
+      response_model=User,
+      response_model_by_alias=False,
+)
+async def get_itembyId(id: str):
+    if (
+        user := collectionUsers.find_one({"_id": ObjectId(id)})
+    ) is not None:
+        return user
+    
+    raise HTTPException(status_code=404, detail=f"User {id} not found")

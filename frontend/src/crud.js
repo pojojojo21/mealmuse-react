@@ -8,12 +8,20 @@
 export async function addDish() {
   var url = 'http://localhost:8000';
 
+  var assetName = "Risotto"
+  const response = await getDishes(assetName);
+  const dishes = response.dishes
+  if (dishes.length > 0) {
+    console.error('Error:', "Asset with that name already exists in DB");
+    return;
+  }
+
   const requestBody = {
-    "name": "Pepperoni Pizza",
+    "name": assetName,
     "points": 15,
     "status": false,
     "cuisine": "Italian",
-    "ingredients": ["Pepperoni", "Tomato Sauce", "Cheese", "Pizza Dough"]
+    "ingredients": ["Arborio rice", "Broth", "White wine", "Cheese"]
   };
 
   const requestOptions = {
@@ -63,12 +71,30 @@ export async function getDishes(search = null, type = null) {
     }
 
     // Handle response data if needed
-    console.log(responseData);
+    // console.log(responseData);
     return responseData; // Assuming you want to return the data
   } catch (error) {
     console.error('Error:', error);
     throw error; // Rethrow the error to handle it outside this function
   }
+}
+
+export async function updateDishStatus(assetName) {
+  var url = 'http://localhost:8000/dishes/';
+
+  const response = await getDishes(assetName);
+  const dishes = response.dishes;
+  if (dishes.length === 0) {
+    console.error('Error:', "Asset with that name does not exist in DB");
+    return;
+  }
+
+  var currentDish = dishes[0];
+
+  currentDish.status = !currentDish.status;
+
+
+
 }
 
 // addDish();

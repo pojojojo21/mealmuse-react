@@ -12,7 +12,7 @@ function ProfileCard({ user }) {
         </div>
       </div>
       <div className="profile-text">
-        <div className="userText">{user}</div>
+        <div className="userText userSize">{user}</div>
         <span className="userPoints">120</span> pts
       </div>
       <div className="button-not-clickable">

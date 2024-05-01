@@ -19,7 +19,6 @@ class DishesCollection(BaseModel):
     dishes: List[Dish]
 
 class UpdateDish(BaseModel):
-    name: Optional[str] = None
     points: Optional[int] = None
     status: Optional[bool] = None
     cuisine: Optional[str] = None
@@ -29,3 +28,13 @@ class Search(Enum):
     DISH = 1
     CUISINE = 2
     INGREDIENT = 3
+
+class User(BaseModel):
+    id: Optional[PyObjectId] = Field(alias="_id", default=None)
+    name: str = Field(...)
+    points: int = Field(...)
+    favDish: str = Field(...)
+    favCui: str = Field(...)
+    weekDish: str = Field(...)
+    weekCui: str = Field(...)
+    weekIng: str = Field(...)

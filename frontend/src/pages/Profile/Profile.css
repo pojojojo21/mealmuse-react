@@ -7,9 +7,8 @@
   align-items: center;
   color: white;
   background-color: #00BFA5;
-  padding: 20px 15px;
-  margin: 1%;
+  margin: 1% 12.5%;
   border: none;
-  border-radius: 18px;
+  border-radius: 0.8rem;
   font-size: 1.5rem;
 }

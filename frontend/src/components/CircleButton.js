@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // Import FontAwesomeIcon component
-import { faCheck } from '@fortawesome/free-solid-svg-icons'; // Import the check icon
 
 function CircleButton({ task }) {
   const [isClicked, setIsClicked] = useState(false);
@@ -13,7 +11,7 @@ function CircleButton({ task }) {
 
   return (
     <div className={isClicked ? 'circle clicked' : 'circle'} onClick={handleClick}>
-      {isClicked && <FontAwesomeIcon icon={faCheck} id="check" className={showCheck ? 'show' : ''} />}
+      {isClicked && <span className={showCheck ? 'show' : ''} id="check"><img src='Images/Check.png' alt='arrow' width="20" /></span>}
     </div>
   );
 }

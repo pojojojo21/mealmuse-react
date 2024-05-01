@@ -5,6 +5,10 @@ import CircleButton from './CircleButton';
 
 function BasicButton({ buttonText, pageLink }) {
   const task = getTask(buttonText);
+  // const [selectedDish, setSelectedDish] = React.useState('Tacos');
+  // const [selectedCuisine, setSelectedCuisine] = React.useState('Italian');
+  // const [selectedIngredient, setSelectedIngredient] = React.useState('Lamb');
+
 
   return (
     <div className="button-div main">
@@ -12,12 +16,12 @@ function BasicButton({ buttonText, pageLink }) {
         <CircleButton task={task} />
         <Link to={pageLink} className="basic-button">
           <span>
-            {buttonText}:<br /><br />
-            <span style={{ display: 'flex', alignItems: 'center' }}>
-              {buttonText} [+5] <img src={getImageSrc(buttonText)} alt={buttonText} width="70" height="70" />
+            {buttonText}:<br />
+            <span style={{ display: 'flex', alignItems: 'center', fontSize: '1.0rem' }}>
+              {task} <span id='bonus'>[+5]</span> <img src={getImageSrc(buttonText)} alt={buttonText} width="35%" height="35%" />
             </span>
           </span>
-          <span className="arrow" style={{ marginLeft: '2%' }}>&#8250;</span>
+          <span className="arrow" style={{ marginLeft: '0%' }}><img src='Images/Arrow.png' alt='arrow' width="15" /></span>
         </Link>
       </div>
     </div>
@@ -42,11 +46,11 @@ function getTask(buttonText) {
   // Implement logic to determine task based on buttonText
   switch (buttonText.toLowerCase()) {
     case 'weekly dish':
-      return 'tacos'; // Example image source for Weekly Dish
+      return 'Tacos'; // Example image source for Weekly Dish
     case 'weekly cuisine':
-      return 'italian'; // Example image source for Weekly Cuisine
+      return 'Italian'; // Example image source for Weekly Cuisine
     case 'weekly ingredient':
-      return 'lamb'; // Example image source for Weekly Ingredient
+      return 'Lamb'; // Example image source for Weekly Ingredient
     default:
       return '';
   }

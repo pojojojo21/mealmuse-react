@@ -2,17 +2,18 @@
 .statusBar {
   background-color: #FF6F61;
   margin-top: 1px;
-  border-top-width: 1px;
-  border-bottom-width: 1px;
-  border-right-width: 0px;
-  border-left-width: 0px;
-  border-style: solid;
-  border-color: #fff;
+  margin-bottom: 2%;
+
   padding: 1%;
+  padding-left: 3%;
   color: #fff;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 2.0rem;
+  font-size: 0.8rem;
+}
+
+.size {
+  font-size: 1.2rem;
 }

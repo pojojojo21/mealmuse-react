@@ -5,7 +5,7 @@ function Header() {
   return (
     <header>
       <div id="logo">
-        <img src="Images/Logo.png" alt="" width="200" height="90" />
+        <img src="Images/Logo.png" alt="" width="50%" height="10%" style={{ padding: '3%' }} />
       </div>
     </header>
   );

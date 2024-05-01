@@ -13,9 +13,9 @@ function Search() {
       const response = await getDishes(searchQuery);
       const dishes = response.dishes
       setSearchResults(dishes)
-      dishes.forEach(dish => { // Remove ".array" here
-        console.log(dish.name)
-      });
+      // dishes.forEach(dish => {
+      //   console.log(dish.name)
+      // });
     } catch (error) {
       console.error('Error:', error);
     }
@@ -37,8 +37,8 @@ function Search() {
       </div>
 
       {searchResults.map((dish, index) => (
-        <GenericButton key={index} to={dish.name.toLowerCase()}> {/* Use dish name as button link */}
-          {dish.name} {/* Display dish name as button text */}
+        <GenericButton key={index} to={dish.name}>
+          {dish.name}
         </GenericButton>
       ))}
 

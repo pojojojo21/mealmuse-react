@@ -1,19 +1,23 @@
 /* overall button style */
 .generic-button {
-  display: inline-flex;
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: space-around;
   background-color: #00BFA5;
-  margin: 1% 6%;
-  padding-right: 1%;
-  padding-left: 1%;
+  margin: 3% 14%;
+  margin-right: 8%;
   border: none;
-  border-radius: 18px;
+  border-radius: 0.8rem;
   cursor: pointer;
   flex-grow: 1;
   color: white;
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 90%;
+  justify-content: space-between;
+  padding-right: 2%;
+  padding-left: 12%;
+  padding-top: 5%;
+  padding-bottom: 5%;
 }
 
 .generic-button:hover {
@@ -27,8 +31,29 @@
   font-size: 1.0rem;
 }
 
-/* arrow in button */
-.arrow {
-  margin-left: 40%;
-  font-size: 5.0rem;
+.arrow-general {
+  padding-right: 2%;
+  display: flex;
+  align-items: center;
+}
+
+.circle-general {
+  position: absolute;
+  width: 2.0rem;
+  height: 2.0rem;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border-style: solid;
+  border-width: 0.2rem;
+  border-color: #FF6F61;
+  cursor: pointer;
+  margin: 5%;
+  left: -1%;
+}
+
+#dishPic {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
