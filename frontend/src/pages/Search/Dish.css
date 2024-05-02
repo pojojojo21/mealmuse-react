@@ -1,0 +1,43 @@
+.back-arrow {
+  position: absolute;
+  top: 2vh;
+  left: 2vw;
+  z-index: 999;
+}
+
+h2 {
+  color: #00BFA5;
+}
+
+.image-container {
+  margin: 0vh 20vw;
+  padding: 7vh 5vw;
+  border-style: solid;
+  border-radius: 50vh;
+  border-width: 3vw;
+  border-color: #FF6F61;
+}
+
+.points {
+  font-size: 5vh;
+  color: #00BFA5;
+}
+
+.ingredients {
+  background-color: #00BFA5;
+  margin: 2vh 10vw;
+  border-radius: 3vh;
+  color: white;
+  padding: 1vh;
+  padding-bottom: 2vh;
+}
+
+.ingredients h3 {
+  font-size: 5vh;
+  margin: 0vh;
+}
+
+.ingredients p {
+  font-size: 3vh;
+  margin: 0vh;
+}

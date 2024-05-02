@@ -1,10 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { getDishes } from "../../crud"
 import GenericButton from '../../components/GenericButton';
 import "./Search.css"
+import DishPage from './Dish';
 
 function Search() {
   const [searchResults, setSearchResults] = useState([]);
+
+  useEffect(() => {
+    // Define async function inside useEffect
+    const fetchData = async () => {
+      try {
+        const response = await getDishes();
+        const dishes = response.dishes;
+        setSearchResults(dishes);
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    };
+
+    // Call the async function
+    fetchData();
+  }, []);
 
   const handleSearch = async (event) => { // Add async keyword here
     const searchQuery = event.target.value;
@@ -13,9 +30,6 @@ function Search() {
       const response = await getDishes(searchQuery);
       const dishes = response.dishes
       setSearchResults(dishes)
-      // dishes.forEach(dish => {
-      //   console.log(dish.name)
-      // });
     } catch (error) {
       console.error('Error:', error);
     }
@@ -24,6 +38,7 @@ function Search() {
 
   return (
     <div className="search-container button-div">
+
       <div className="button-not-clickable">
         <div>
           <input

@@ -12,10 +12,10 @@ header {
 }
 
 /* top bar text */
-#logo {
-  margin-top: 2%;
-  margin-bottom: 2%;
-}
+/* #logo {
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+} */
 
 /* top bar style for back arrow combination */
 /* .topBar {

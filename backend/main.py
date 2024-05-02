@@ -6,9 +6,13 @@ from fastapi import status
 # from motor.motor_asyncio import AsyncIOMotorClient
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
-from models import Dish, DishesCollection, UpdateDish, Search, User
+from models import Dish, DishesCollection, UpdateDish, User
 import certifi
 from bson import ObjectId
+from pydantic.functional_validators import BeforeValidator
+from typing_extensions import Annotated
+
+PyObjectId = Annotated[str, BeforeValidator(str)]
 
 app = FastAPI(
    title="MealMuse Backend API"
@@ -16,7 +20,7 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # Update this with your frontend URL
+    allow_origins=["http://localhost:3000", "*"],
     allow_credentials=True,
     allow_methods=["GET", "POST", "PUT", "DELETE"],
     allow_headers=["*"],
@@ -74,8 +78,7 @@ Allows searching by arbitrary strings, ingredients or cuisines.""",
     response_model_by_alias=False,
 )
 def get_assets(
-    search: str | None = None,
-    type: Search | None = None
+    search: str | None = None
 ):
     query = {}
     if search:
@@ -94,13 +97,13 @@ def get_assets(
     return DishesCollection(dishes=dishes)
 
 @app.put(
-      "/dishes/{dish_id}",
+      "/dishes/{dish_name}",
       response_description="Update a single dish by id",
       response_model=Dish,
       response_model_by_alias=False,
 )
-async def update_item(dish_id: str, dish: Dish):
-    result = collection.replace_one({"id": dish_id}, dish.model_dump(by_alias=True, exclude=["id"]))
+async def update_item(dish_name: str, dish: Dish):
+    result = collection.replace_one({"name": dish_name}, dish.model_dump(by_alias=True, exclude=["id"]))
     if result.modified_count == 0:
         raise HTTPException(status_code=404, detail="Dish not found")
     return dish

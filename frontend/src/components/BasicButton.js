@@ -17,15 +17,15 @@ function BasicButton({ buttonText, pageLink }) {
         <Link to={pageLink} className="basic-button">
           <span>
             {buttonText}:<br />
-            <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-evenly', fontSize: '120%' }}>
+            <span id="secondLine">
               {task}
               <img src={getImageSrc(buttonText)} alt={buttonText} width="20%" height="20%" />
               <span id='bonus' style={{ display: 'flex', alignItems: 'center' }}>
-                +5<img src="Images/Fork.png" alt="" width="20" />
+                +5<img src="Images/Fork.png" alt="" width="20vw" />
               </span>
             </span>
           </span>
-          <span className="arrow" style={{ marginLeft: '0%' }}><img src='Images/Arrow.png' alt='arrow' width="25" /></span>
+          <span className="arrow" style={{ marginLeft: '0%' }}><img src='Images/Arrow.png' alt='arrow' height="50vh" /></span>
         </Link>
       </div>
     </div >

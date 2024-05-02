@@ -1,26 +1,17 @@
-import React, { useEffect } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import React from 'react';
 import BasicButton from '../../components/BasicButton';
-import WeeklyDishPage from './WeeklyDishPage'; // Create WeeklyDishPage component
-import WeeklyCuisinePage from './WeeklyCuisinePage'; // Create WeeklyCuisinePage component
-import WeeklyIngredientPage from './WeeklyIngredientPage'; // Create WeeklyIngredientPage component
 import StatusBar from '../../components/StatusBar';
 import "./Home.css"
 
-function Home() {
+function Home({ setActiveLink, dishLink }) {
 
   return (
     <div>
-      <Routes>
-        <Route path="/weekly-dish" element={<WeeklyDishPage />} />
-        <Route path="/weekly-cuisine" element={<WeeklyCuisinePage />} />
-        <Route path="/weekly-ingredient" element={<WeeklyIngredientPage />} />
-      </Routes>
       <div>
         <StatusBar />
-        <BasicButton buttonText="Weekly Dish" pageLink="/weekly-dish" />
-        <BasicButton buttonText="Weekly Cuisine" pageLink="/weekly-cuisine" />
-        <BasicButton buttonText="Weekly Ingredient" pageLink="/weekly-ingredient" />
+        <BasicButton buttonText="Weekly Dish" pageLink={`/${dishLink}`} />
+        <BasicButton buttonText="Weekly Cuisine" pageLink="/search" />
+        <BasicButton buttonText="Weekly Ingredient" pageLink="/search" />
       </div>
     </div>
   );

@@ -24,10 +24,11 @@ class UpdateDish(BaseModel):
     cuisine: Optional[str] = None
     ingredients: Optional[List[str]] = None
  
-class Search(Enum):
-    DISH = 1
-    CUISINE = 2
-    INGREDIENT = 3
+# class Task(BaseModel):
+#     id: Optional[PyObjectId] = Field(alias="_id", default=None)
+#     name: str = Field(...)
+#     status: bool = Field(...)
+#     type: str = Field(...) # Dish, Cuisine, Ingredient
 
 class User(BaseModel):
     id: Optional[PyObjectId] = Field(alias="_id", default=None)
