@@ -7,7 +7,7 @@
   font-size: 0.9rem;
   line-height: 1;
   color: #FF6F61;
-  width: 175%;
+  width: 63vw;
 }
 
 .search-input::placeholder {
@@ -15,5 +15,5 @@
 }
 
 .search-container {
-  margin-top: 35%;
+  margin-top: 13vh;
 }

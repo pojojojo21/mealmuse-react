@@ -1,5 +1,5 @@
 .back-arrow {
-  position: absolute;
+  position: fixed;
   top: 2vh;
   left: 2vw;
   z-index: 999;
@@ -10,8 +10,8 @@ h2 {
 }
 
 .image-container {
-  margin: 0vh 20vw;
-  padding: 7vh 5vw;
+  margin: 0vh 24vw;
+  padding: 5vh 5vw;
   border-style: solid;
   border-radius: 50vh;
   border-width: 3vw;
@@ -19,7 +19,7 @@ h2 {
 }
 
 .points {
-  font-size: 5vh;
+  font-size: 4vh;
   color: #00BFA5;
 }
 
@@ -33,11 +33,42 @@ h2 {
 }
 
 .ingredients h3 {
-  font-size: 5vh;
+  font-size: 4vh;
   margin: 0vh;
 }
 
 .ingredients p {
   font-size: 3vh;
   margin: 0vh;
+}
+
+.complete-button {
+  background-color: #00BFA5;
+  border: none;
+  font-size: 3vh;
+  cursor: pointer;
+  color: white;
+  padding: 2vh;
+  width: 80vw;
+  border-radius: 2vh;
+  margin-bottom: 2vh;
+}
+
+.complete-button.clicked {
+  background-color: #FF6F61;
+}
+
+.favorite-button {
+  background-color: #00BFA5;
+  border: none;
+  font-size: 3vh;
+  cursor: pointer;
+  color: white;
+  padding: 2vh;
+  width: 80vw;
+  border-radius: 2vh;
+}
+
+.favorite-button.clicked {
+  background-color: #FF6F61;
 }

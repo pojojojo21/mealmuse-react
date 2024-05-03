@@ -1,14 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import "./Leaderboard.css"
 
-function Leaderboard() {
-  // State variable to track whether to display weekly or all-time leaderboard
+function Leaderboard({ setActiveLink }) {
   const [isWeekly, setIsWeekly] = useState(true);
-  // State variable to track whether dropdown content is open
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const currentUser = 'Joanna';
+
+  useEffect(() => {
+    setActiveLink('/leaderboard');
+  }, [setActiveLink]);
 
   // Static data for the leaderboard
   const weeklyLeaders = [
+    { name: 'Joanna', points: 125 },
     { name: 'Alice', points: 100 },
     { name: 'Bob', points: 90 },
     { name: 'Charlie', points: 80 },
@@ -26,7 +30,8 @@ function Leaderboard() {
     { name: 'Grace', points: 440 },
     { name: 'Henry', points: 430 },
     { name: 'Ivy', points: 420 },
-    { name: 'Jack', points: 410 }
+    { name: 'Jack', points: 410 },
+    { name: 'Joanna', points: 125 }
   ];
 
   // Function to toggle dropdown content
@@ -43,8 +48,7 @@ function Leaderboard() {
   return (
     <div className="leaderboard-container">
       <div style={{ display: "flex", flexDirection: 'row', alignItems: 'center', justifyContent: 'space-evenly' }}>
-        <h2>Leaderboard</h2>
-        {/* Dropdown button to switch between weekly and all-time leaderboard */}
+        <h2 className='leaderboard-header'>Leaderboard</h2>
         <div className="dropdown">
           <button className="dropbtn" onClick={toggleDropdown}>
             {isWeekly ? 'Weekly' : 'All-Time'}
@@ -74,7 +78,7 @@ function Leaderboard() {
         <tbody>
           {/* Map over the appropriate array of leaders based on isWeekly state */}
           {(isWeekly ? weeklyLeaders : allTimeLeaders).map((leader, index) => (
-            <tr key={index}>
+            <tr key={index} className={leader.name === currentUser ? 'highlighted-user' : ''}>
               <td>{index + 1}</td>
               <td>{leader.name}</td>
               <td>{leader.points}</td>

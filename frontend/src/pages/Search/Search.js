@@ -2,30 +2,47 @@ import React, { useState, useEffect } from 'react';
 import { getDishes } from "../../crud"
 import GenericButton from '../../components/GenericButton';
 import "./Search.css"
-import DishPage from './Dish';
+import SearchInput from './SearchInput';
 
-function Search() {
+
+function Search({ setActiveLink, newDishPage, searchInput }) {
+  const [searchValue, setSearchValue] = useState('');
   const [searchResults, setSearchResults] = useState([]);
 
   useEffect(() => {
-    // Define async function inside useEffect
+    setActiveLink("/search");
     const fetchData = async () => {
       try {
         const response = await getDishes();
         const dishes = response.dishes;
         setSearchResults(dishes);
+
       } catch (error) {
         console.error('Error:', error);
       }
     };
 
-    // Call the async function
     fetchData();
-  }, []);
+    //   setSearchValue(searchInput || '');
+    //   const fetchData = async () => {
+    //     try {
+    //       const response = await getDishes(searchInput || '');
+    //       const dishes = response.dishes;
+    //       setSearchResults(dishes);
 
-  const handleSearch = async (event) => { // Add async keyword here
+    //     } catch (error) {
+    //       console.error('Error:', error);
+    //     }
+    //   };
+
+    //   fetchData();
+    // }, [setActiveLink, searchInput, searchResults]);
+  }, [setActiveLink]);
+
+  const handleSearch = async (event) => {
     const searchQuery = event.target.value;
-    // console.log(searchQuery);
+    setSearchValue(searchQuery);
+
     try {
       const response = await getDishes(searchQuery);
       const dishes = response.dishes
@@ -40,19 +57,11 @@ function Search() {
     <div className="search-container button-div">
 
       <div className="button-not-clickable">
-        <div>
-          <input
-            type="text"
-            id="textInput"
-            className="search-input"
-            placeholder="Search..."
-            onChange={handleSearch}
-          />
-        </div>
+        <SearchInput value={searchValue} onChange={handleSearch} />
       </div>
 
       {searchResults.map((dish, index) => (
-        <GenericButton key={index} to={dish.name}>
+        <GenericButton key={index} to={dish.name} newDishPage={newDishPage}>
           {dish.name}
         </GenericButton>
       ))}

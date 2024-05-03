@@ -1,8 +1,5 @@
 /* overall button style */
 .generic-button {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
   background-color: #00BFA5;
   margin: 3% 14%;
   margin-right: 8%;
@@ -10,14 +7,20 @@
   border-radius: 0.8rem;
   cursor: pointer;
   flex-grow: 1;
+}
+
+.generic-link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   color: white;
   text-decoration: none;
   font-size: 150%;
-  justify-content: space-between;
   padding-right: 2%;
   padding-left: 12%;
   padding-top: 5%;
   padding-bottom: 5%;
+  justify-content: space-between;
 }
 
 .generic-button:hover {

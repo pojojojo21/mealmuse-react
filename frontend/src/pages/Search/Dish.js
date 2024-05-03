@@ -1,19 +1,26 @@
 import React, { useState, useEffect } from 'react';
-import { getDishByName } from "../../crud"
+import { getDishByName, updateDishStatus } from "../../crud"
 import { Link } from 'react-router-dom';
 import "./Dish.css"
+import JSConfetti from 'js-confetti'
 
-function DishPage({ dishLink, dishName, backlink }) {
+function DishPage({ dishLink, dishName, backlink, newDishPage }) {
   const [dish, setDish] = useState({});
   const [dish_ingredients, setIngredients] = useState([]);
+  const [completed, setCompleted] = useState(false);
+  const [favorited, setFavorited] = useState(false);
+  const jsConfetti = new JSConfetti()
 
   useEffect(() => {
-    // Define async function inside useEffect
+    console.log(dishName);
+    newDishPage(dishName, backlink);
+
     const fetchData = async () => {
       try {
         const response = await getDishByName(dishName);
-        // console.log(response)
+
         setDish(response);
+        setCompleted(response.status);
         setIngredients(response.ingredients);
       } catch (error) {
         console.error('Error:', error);
@@ -22,7 +29,25 @@ function DishPage({ dishLink, dishName, backlink }) {
 
     // Call the async function
     fetchData();
-  }, [dishName]);
+  }, [dishName, backlink, newDishPage]);
+
+  const handleClickComplete = async () => {
+    try {
+      await updateDishStatus(dishName);
+      setCompleted(!completed);
+
+      if (!completed) {
+        jsConfetti.addConfetti()
+      }
+
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+
+  const handleClickFavorite = () => {
+    setFavorited(!favorited);
+  };
 
   return (
     <div className="dish-page">
@@ -43,8 +68,12 @@ function DishPage({ dishLink, dishName, backlink }) {
             <p key={index}>{ingredient}</p>
           ))}
         </div>
-        <button className="complete-button">Complete</button>
-        <button className="favorite-button">Add to favorites</button>
+        <div>
+          <button className={completed ? 'complete-button clicked' : 'complete-button'} onClick={handleClickComplete}>{completed ? 'Completed' : 'Complete'}</button>
+        </div>
+        <div>
+          <button className={favorited ? 'favorite-button clicked' : 'favorite-button'} onClick={handleClickFavorite}>{favorited ? 'Favorited' : 'Add to favorites'}</button>
+        </div>
       </div>
     </div>
   );

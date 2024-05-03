@@ -5,7 +5,8 @@
 // Calling fetchClient.POST()
 // const authToken = await getAuthToken();
 // var localURL = 'http://localhost:8000';
-var url = 'https://harmless-hookworm-immensely.ngrok-free.app';
+// var url = 'https://harmless-hookworm-immensely.ngrok-free.app';
+var url = 'https://freely-sweeping-molly.ngrok-free.app';
 // var url = '/api'
 // var url = '';
 
@@ -94,7 +95,6 @@ export async function getDishStatusByName(dish) {
   }
   return dishes[0].status;
 }
-
 
 export async function updateDishStatus(dish) {
 
@@ -501,6 +501,27 @@ async function deleteAllDishes() {
   });
 }
 
+export function getRandomDish() {
+  const randomIndex = Math.floor(Math.random() * dishNameList.length);
+
+  return dishNameList[randomIndex];
+}
+
+export function getRandomCuisine() {
+  const randomIndex = Math.floor(Math.random() * cuisineList.length);
+
+  return cuisineList[randomIndex];
+}
+
+export function getRandomIngredient() {
+  const randomIndex = Math.floor(Math.random() * ingredientList.length);
+
+  return ingredientList[randomIndex];
+}
+
+export function getDishesList() {
+  return dishNameList;
+}
 // deleteAllDishes();
 
 // populateDishCollection();
