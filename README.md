@@ -1,3 +1,8 @@
+# Run commands
+uvicorn main:app --reload
+npm start
+ngrok start frontend backend
+
 # Getting Started
 
 First naviagtive to this website https://nodejs.org/en/download/
