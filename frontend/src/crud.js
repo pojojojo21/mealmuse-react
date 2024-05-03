@@ -522,6 +522,39 @@ export function getRandomIngredient() {
 export function getDishesList() {
   return dishNameList;
 }
+
+if (localStorage.getItem('dishWS') == null) {
+  localStorage.setItem('dishWS', 'Ground Beef Tacos');
+}
+
+if (localStorage.getItem('cuisineWS') == null) {
+  localStorage.setItem('cuisineWS', 'Italian');
+}
+
+if (localStorage.getItem('ingredientWS') == null) {
+  localStorage.setItem('ingredientWS', 'Rice');
+}
+
+export function returnWS(generateNew) {
+  if (generateNew) {
+    const dishWS = getRandomDish();
+    localStorage.setItem('dishWS', dishWS);
+
+    const cuisineWS = getRandomCuisine();
+    localStorage.setItem('cuisineWS', cuisineWS);
+
+    const ingredientWS = getRandomIngredient();
+    localStorage.setItem('ingredientWS', ingredientWS);
+  }
+
+  const response = {
+    'dish': localStorage.getItem('dishWS'),
+    'cuisine': localStorage.getItem('cuisineWS'),
+    'ingredient': localStorage.getItem('ingredientWS')
+  }
+
+  return response;
+}
 // deleteAllDishes();
 
 // populateDishCollection();

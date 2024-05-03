@@ -31,7 +31,6 @@ function App() {
     localStorage.removeItem('user')
     if (localStorage.getItem('user') === null) {
       localStorage.setItem('user', JSON.stringify({ 'userName': 'Joanna', 'points': 120 }));
-      console.log('print');
     }
 
     setDish(localStorage.getItem('dishPage'));

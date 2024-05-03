@@ -2,13 +2,14 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './BasicButton.css'
 import CircleButton from './CircleButton';
-import { getRandomDish, getRandomCuisine, getRandomIngredient } from '../crud';
+import { returnWS } from '../crud';
 
 function BasicButton({ buttonText, newDishPage, setSearchValue }) {
   const task = getTask(buttonText);
   const navigate = useNavigate();
 
   const handleButtonClick = () => {
+
     if (buttonText.toLowerCase() === 'weekly dish') {
       newDishPage(task, '/');
 
@@ -59,14 +60,16 @@ function getImageSrc(buttonText, task) {
 }
 
 function getTask(buttonText) {
+  const response = returnWS(false);
+  console.log(response.cuisine);
   // Implement logic to determine task based on buttonText
   switch (buttonText.toLowerCase()) {
     case 'weekly dish':
-      return getRandomDish();
+      return response.dish;
     case 'weekly cuisine':
-      return getRandomCuisine();
+      return response.cuisine;
     case 'weekly ingredient':
-      return getRandomIngredient();
+      return response.ingredient;
     default:
       return '';
   }

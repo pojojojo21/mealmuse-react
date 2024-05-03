@@ -12,7 +12,6 @@ function DishPage({ dishLink, dishName, backlink, newDishPage }) {
   const jsConfetti = new JSConfetti()
 
   useEffect(() => {
-    console.log(dishName);
     newDishPage(dishName, backlink);
 
     const fetchData = async () => {
