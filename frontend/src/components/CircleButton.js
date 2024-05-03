@@ -34,10 +34,15 @@ function CircleButton({ task }) {
       var newPoints = user.points + points + 5;
 
       localStorage.setItem('user', JSON.stringify({ 'userName': 'Joanna', 'points': newPoints }));
-      userString = localStorage.getItem('user');
-      user = JSON.parse(userString);
 
       jsConfetti.addConfetti()
+    } else {
+      userString = localStorage.getItem('user');
+      user = JSON.parse(userString);
+      newPoints = user.points - points - 5;
+
+      localStorage.setItem('user', JSON.stringify({ 'userName': 'Joanna', 'points': newPoints }));
+
     }
   };
   // <li><Link to="/search" className={activeLink === '/search' ? 'nav-link active' : 'nav-link'} onClick={() => handleLinkClick('/search')}><FontAwesomeIcon icon={faSearch} /></Link></li>

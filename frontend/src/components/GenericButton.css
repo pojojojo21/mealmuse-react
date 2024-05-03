@@ -7,9 +7,7 @@
   border-radius: 0.8rem;
   cursor: pointer;
   flex-grow: 1;
-}
 
-.generic-link {
   display: flex;
   flex-direction: row;
   align-items: center;

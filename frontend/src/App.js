@@ -60,7 +60,7 @@ function App() {
               <Route path="/leaderboard" element={<Leaderboard setActiveLink={setActiveLink} />} />
               <Route path="/profile" element={<Profile setActiveLink={setActiveLink} />} />
               <Route path="/search" element={<Search setActiveLink={setActiveLink} newDishPage={newDishPage} searchInput={searchValue} />} />
-              <Route path="/completeddishes" element={<CompletedDishes></CompletedDishes>}/>
+              <Route path="/completeddishes" element={<CompletedDishes></CompletedDishes>} />
             </Routes>
           </div>
 
